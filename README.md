@@ -1,6 +1,6 @@
 # 🧠 Recallio - Digital Memory
 
-**Recallio** is a modern, full-stack digital content management platform that helps you save, organize, and search through your digital memories. Built with React, TypeScript, Node.js, and MongoDB.
+**Recallio** is a modern, full-stack digital content management platform that helps you save, organize, and search through your digital memories. Perfect for content creators, researchers, and anyone who wants to build their personal knowledge base. Built with React, TypeScript, Node.js, and MongoDB.
 
 ![Recallio Banner](https://img.shields.io/badge/Recallio-Digital%20Memory-black?style=for-the-badge)
 
@@ -78,8 +78,8 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/recallio.git
-cd recallio
+git clone https://github.com/harshverma7/Recallio.git
+cd Recallio
 ```
 
 ### 2. Backend Setup
@@ -156,9 +156,10 @@ Recallio/
 
 1. Push your code to GitHub
 2. Connect your GitHub repo to [Vercel](https://vercel.com)
-3. Set build command: `npm run build`
-4. Set output directory: `dist`
-5. Add environment variable: `VITE_API_BASE_URL=your_backend_url`
+3. Select the `Recallio-fe` folder as root directory
+4. Set build command: `npm run build`
+5. Set output directory: `dist`
+6. Add environment variable: `VITE_API_BASE_URL=your_backend_url`
 
 #### **Backend → Railway**
 
@@ -218,6 +219,17 @@ VITE_API_BASE_URL=https://your-backend-url.railway.app/api/v1
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+## 🎯 Future Enhancements
+
+- Browser extension for quick content saving
+- Advanced tag management system
+- Content categorization with machine learning
+- Export functionality (JSON, CSV)
+- Collaborative collections
+- Mobile app development
+- Content preview generation
+- Advanced analytics and insights
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -228,6 +240,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Inspired by the need for better digital content organization
 - Designed for simplicity and efficiency
 
+## 📧 Contact & Support
+
+- **GitHub**: [harshverma7/Recallio](https://github.com/harshverma7/Recallio)
+- **Issues**: [Report bugs or request features](https://github.com/harshverma7/Recallio/issues)
+- **Discussions**: [Join the community](https://github.com/harshverma7/Recallio/discussions)
+
 ---
 
 **Recallio** - Your Digital Memory, Organized. 🧠✨
+
+Made with ❤️ by [Harsh Verma](https://github.com/harshverma7)
