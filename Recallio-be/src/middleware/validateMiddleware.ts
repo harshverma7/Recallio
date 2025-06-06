@@ -8,13 +8,11 @@ export const validateRequest = (schema: z.ZodObject<any, any>) => {
       next();
     } catch (e) {
       if (e instanceof z.ZodError) {
-        // Extract specific validation errors
         const errors = e.errors.map((err) => ({
           field: err.path.join("."),
           message: err.message,
         }));
 
-        // Find the first error and return its message
         const firstError = errors[0];
         res.status(400).json({
           message: firstError ? firstError.message : "Invalid Request Body",

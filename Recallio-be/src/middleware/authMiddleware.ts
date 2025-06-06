@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { JWT_SECRET } from "./config";
+import { JWT_SECRET } from "../config/config";
 import jwt from "jsonwebtoken";
 
 export const authRequest = async (
@@ -15,15 +15,14 @@ export const authRequest = async (
     return;
   }
 
-  const decoded = jwt.verify(token as string, JWT_SECRET) as { id: string };
-
-  if (!decoded) {
+  try {
+    const decoded = jwt.verify(token as string, JWT_SECRET) as { id: string };
+    req.userId = decoded.id;
+    next();
+  } catch (error) {
     res.status(401).json({
       message: "Unauthorized Request, login to get access",
     });
     return;
   }
-
-  req.userId = decoded.id;
-  next();
 };

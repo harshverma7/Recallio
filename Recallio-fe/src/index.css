@@ -1,3 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary-50 font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500;
+  }
+
+  .btn-primary {
+    @apply bg-accent-600 hover:bg-accent-700 text-white font-medium px-4 py-2.5 rounded-xl transition-all duration-200 focus-ring shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-primary-100 hover:bg-primary-200 text-primary-700 font-medium px-4 py-2.5 rounded-xl transition-all duration-200 focus-ring;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
