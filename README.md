@@ -148,48 +148,6 @@ Recallio/
 └── README.md
 ```
 
-## 🚀 Deployment
-
-### **Free Deployment Options**
-
-#### **Frontend → Vercel**
-
-1. Push your code to GitHub
-2. Connect your GitHub repo to [Vercel](https://vercel.com)
-3. Select the `Recallio-fe` folder as root directory
-4. Set build command: `npm run build`
-5. Set output directory: `dist`
-6. Add environment variable: `VITE_API_BASE_URL=your_backend_url`
-
-#### **Backend → Railway**
-
-1. Connect your GitHub repo to [Railway](https://railway.app)
-2. Select the `Recallio-be` folder as root directory
-3. Railway will auto-detect Node.js and deploy
-4. Add environment variables in Railway dashboard
-
-#### **Database → MongoDB Atlas**
-
-1. Create free cluster at [MongoDB Atlas](https://cloud.mongodb.com)
-2. Get connection string
-3. Add to your backend environment variables
-
-### **Environment Variables**
-
-#### Backend (.env)
-
-```env
-MONGODB_URL=mongodb+srv://username:password@cluster.mongodb.net/recallio
-JWT_SECRET=your-super-secret-jwt-key
-PORT=3000
-```
-
-#### Frontend (.env)
-
-```env
-VITE_API_BASE_URL=https://your-backend-url.railway.app/api/v1
-```
-
 ## 🔧 API Endpoints
 
 ### Authentication
@@ -229,10 +187,6 @@ VITE_API_BASE_URL=https://your-backend-url.railway.app/api/v1
 - Mobile app development
 - Content preview generation
 - Advanced analytics and insights
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
