@@ -75,52 +75,6 @@ npm install
 npm run dev
 ```
 
-## 📱 Screenshots
-
-### 🏠 **Landing Page**
-
-![Landing Page](./assets/screenshots/landing-page.png)
-_Clean landing page with compelling messaging and call-to-action buttons_
-
-### 🎯 **Hero Section**
-
-![Hero Section](./assets/screenshots/hero-section.png)
-_Professional hero section showcasing key stats: 10K+ Active Users, 1M+ Items Saved, 99.9% Uptime_
-
-### 🔐 **Authentication**
-
-<div align="center">
-  <img src="./assets/screenshots/signup.png" width="45%" alt="Sign Up" />
-  <img src="./assets/screenshots/signin.png" width="45%" alt="Sign In" />
-</div>
-
-_Simple and clean sign up and sign in forms_
-
-### 📊 **Dashboard**
-
-![Dashboard](./assets/screenshots/dashboard.png)
-_Main dashboard featuring smart sidebar, content cards with YouTube/Twitter/Article embeds, and search functionality_
-
-### ➕ **Add Content**
-
-![Add Content Modal](./assets/screenshots/add-content-modal.png)
-_Smart content addition modal with URL auto-detection and content type selection_
-
-### ✨ **Key Features**
-
-- **🎥 YouTube Videos** - Full video embeds with playback
-- **🐦 Twitter Posts** - Complete tweet embeds with interactions
-- **📰 Articles** - Clean article cards with source links
-- **🔍 Smart Search** - Real-time filtering and content discovery
-- **📊 Activity Tracking** - Weekly activity graphs in sidebar
-- **🏷️ Content Organization** - Filter by type with live counts
-
-### 🚀 **Experience It Live**
-
-> 👉 **Try all these features yourself**: [https://recallio-eta.vercel.app](https://recallio-eta.vercel.app)
->
-> Create an account and start building your digital collection today!
-
 ## 🔧 Environment Variables
 
 ### Frontend (.env)
