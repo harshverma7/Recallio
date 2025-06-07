@@ -17,6 +17,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://127.0.0.1:5173",
+      "https://recallio-eta.vercel.app",
       process.env.FRONTEND_URL || "http://localhost:5173",
     ],
     credentials: true, // Allow cookies to be sent
@@ -26,6 +27,11 @@ app.use(
 );
 
 app.use(express.json());
+
+// Health check endpoint
+app.get("/api/v1/health", (req, res) => {
+  res.json({ status: "OK", message: "Recallio API is running" });
+});
 
 const signupSchema = z.object({
   username: z.string().min(4),
