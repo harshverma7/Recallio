@@ -14,7 +14,11 @@ const app = express();
 // CORS configuration
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173"], // Allow requests from your frontend
+    origin: [
+      "http://localhost:5173",
+      "http://127.0.0.1:5173",
+      process.env.FRONTEND_URL || "http://localhost:5173",
+    ],
     credentials: true, // Allow cookies to be sent
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -470,4 +474,7 @@ app.get("/api/v1/recall/:shareLink", async (req, res) => {
   }
 });
 
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
