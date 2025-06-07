@@ -77,7 +77,79 @@ npm run dev
 
 ## 📱 Screenshots
 
-_Beautiful, modern interface for organizing your digital content_
+### 🏠 **Landing Page**
+
+![Recallio Landing Page](./assets/screenshots/landing-page.png)
+_Beautiful, clean landing page with clear value proposition and compelling call-to-action_
+
+### 🎯 **Hero Section**
+
+![Recallio Hero](./assets/screenshots/hero-section.png)
+_Elegant hero section showcasing key stats: 10K+ Active Users, 1M+ Items Saved, 99.9% Uptime_
+
+### 🔐 **Authentication Flow**
+
+<div align="center">
+  <img src="./assets/screenshots/signup.png" width="45%" alt="Sign Up" />
+  <img src="./assets/screenshots/signin.png" width="45%" alt="Sign In" />
+</div>
+
+_Simple, intuitive authentication with clean form design_
+
+### 📊 **Main Dashboard**
+
+![Main Dashboard](./assets/screenshots/dashboard.png)
+_Organized content dashboard featuring:_
+
+- **Smart Sidebar** with content type filtering and weekly activity
+- **Content Cards** showing YouTube videos, Twitter posts, and articles
+- **Search Functionality** for instant content discovery
+- **Real-time Counts** for each content type
+
+### ➕ **Add Content Modal**
+
+![Add Content Modal](./assets/screenshots/add-content-modal.png)
+_Intelligent content addition with auto-detection of content types from URLs_
+
+### ✨ **Key Features in Action**
+
+**📊 Dashboard Overview:**
+
+- **Content Organization** - 3 saved items displayed with timestamps (Yesterday)
+- **Smart Sidebar** - Real-time counts: YouTube (1), Twitter (1), Articles (1)
+- **Weekly Activity Graph** - Visual bar chart showing content creation patterns
+- **Monthly Grouping** - Content organized by date (June 2025)
+
+**🎥 YouTube Integration:**
+
+- **Rich Video Embeds** - Full YouTube player with "Ed Sheeran - Photograph" example
+- **Metadata Display** - Video titles, channel info, and thumbnails
+- **Direct Playback** - Videos play directly within the app
+
+**🐦 Twitter Integration:**
+
+- **Complete Tweet Embeds** - Full tweet display with profile pictures
+- **Rich Media** - Images and media content preserved
+- **Interaction Buttons** - Like, Reply, and Share functionality maintained
+- **Timestamp Preservation** - Original tweet dates and times shown
+
+**📰 Article Management:**
+
+- **Clean Article Cards** - "load balancer" article from medium.com example
+- **Source Links** - Direct links to original articles
+- **Organized Display** - Articles grouped with other content types
+
+**🔍 Search & Organization:**
+
+- **Real-time Search Bar** - "Search your collection..." placeholder
+- **Content Type Filtering** - All Items, YouTube, Twitter, Articles tabs
+- **Instant Results** - Live filtering as you type
+
+### 🚀 **Experience It Live**
+
+> 👉 **Try all these features yourself**: [https://recallio-eta.vercel.app](https://recallio-eta.vercel.app)
+>
+> Create an account and start building your digital collection today!
 
 ## 🔧 Environment Variables
 
