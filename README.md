@@ -79,71 +79,28 @@ npm run dev
 
 ### 🏠 **Landing Page**
 
-![Recallio Landing Page](./assets/screenshots/landing-page.png)
-_Beautiful, clean landing page with clear value proposition and compelling call-to-action_
+_Clean landing page with compelling messaging_
 
-### 🎯 **Hero Section**
+### 🔐 **Authentication**
 
-![Recallio Hero](./assets/screenshots/hero-section.png)
-_Elegant hero section showcasing key stats: 10K+ Active Users, 1M+ Items Saved, 99.9% Uptime_
+_Simple sign up and sign in forms_
 
-### 🔐 **Authentication Flow**
+### 📊 **Dashboard**
 
-<div align="center">
-  <img src="./assets/screenshots/signup.png" width="45%" alt="Sign Up" />
-  <img src="./assets/screenshots/signin.png" width="45%" alt="Sign In" />
-</div>
+_Main dashboard with sidebar, content cards, and search_
 
-_Simple, intuitive authentication with clean form design_
+### ➕ **Add Content**
 
-### 📊 **Main Dashboard**
+_Smart content addition modal with URL auto-detection_
 
-![Main Dashboard](./assets/screenshots/dashboard.png)
-_Organized content dashboard featuring:_
+### ✨ **Key Features**
 
-- **Smart Sidebar** with content type filtering and weekly activity
-- **Content Cards** showing YouTube videos, Twitter posts, and articles
-- **Search Functionality** for instant content discovery
-- **Real-time Counts** for each content type
-
-### ➕ **Add Content Modal**
-
-![Add Content Modal](./assets/screenshots/add-content-modal.png)
-_Intelligent content addition with auto-detection of content types from URLs_
-
-### ✨ **Key Features in Action**
-
-**📊 Dashboard Overview:**
-
-- **Content Organization** - 3 saved items displayed with timestamps (Yesterday)
-- **Smart Sidebar** - Real-time counts: YouTube (1), Twitter (1), Articles (1)
-- **Weekly Activity Graph** - Visual bar chart showing content creation patterns
-- **Monthly Grouping** - Content organized by date (June 2025)
-
-**🎥 YouTube Integration:**
-
-- **Rich Video Embeds** - Full YouTube player with "Ed Sheeran - Photograph" example
-- **Metadata Display** - Video titles, channel info, and thumbnails
-- **Direct Playback** - Videos play directly within the app
-
-**🐦 Twitter Integration:**
-
-- **Complete Tweet Embeds** - Full tweet display with profile pictures
-- **Rich Media** - Images and media content preserved
-- **Interaction Buttons** - Like, Reply, and Share functionality maintained
-- **Timestamp Preservation** - Original tweet dates and times shown
-
-**📰 Article Management:**
-
-- **Clean Article Cards** - "load balancer" article from medium.com example
-- **Source Links** - Direct links to original articles
-- **Organized Display** - Articles grouped with other content types
-
-**🔍 Search & Organization:**
-
-- **Real-time Search Bar** - "Search your collection..." placeholder
-- **Content Type Filtering** - All Items, YouTube, Twitter, Articles tabs
-- **Instant Results** - Live filtering as you type
+- **🎥 YouTube Videos** - Full video embeds with playback
+- **🐦 Twitter Posts** - Complete tweet embeds with interactions
+- **📰 Articles** - Clean article cards with source links
+- **🔍 Smart Search** - Real-time filtering and content discovery
+- **📊 Activity Tracking** - Weekly activity graphs in sidebar
+- **🏷️ Content Organization** - Filter by type with live counts
 
 ### 🚀 **Experience It Live**
 
