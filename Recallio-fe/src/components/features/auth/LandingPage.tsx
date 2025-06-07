@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Logo } from "../common/Logo";
+import { Logo } from "../../ui/Logo";
 
 interface LandingPageProps {
   onGetStarted: () => void;

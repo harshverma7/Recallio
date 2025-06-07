@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { Button } from "./button";
-import { CrossIcon } from "../../assets/icons/CrossIcon";
-import { ShareIcon } from "../../assets/icons/ShareIcon";
-import { useContentStore } from "../../store/contentStore";
+import { Button } from "../../ui/button";
+import { CrossIcon } from "../../../assets/icons/CrossIcon";
+import { ShareIcon } from "../../../assets/icons/ShareIcon";
+import { useContentStore } from "../../../store/contentStore";
 
 interface ImportForm {
   shareUrl: string;

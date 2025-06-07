@@ -1,87 +1,21 @@
 import { SidebarItem } from "./sideBarItem";
 import { SearchBar } from "./SearchBar";
-import { TwitterIcon } from "../../assets/icons/TwitterIcon";
-import { YoutubeIcon } from "../../assets/icons/YoutubeIcon";
-import { ArticleIcon } from "../../assets/icons/ArticleIcon";
-import { Logo } from "../common/Logo";
+import { Logo } from "./Logo";
 import { useContentStore, type ContentType } from "../../store/contentStore";
+import { CONTENT_TYPES } from "../../constants/contentTypes";
 
 export function Sidebar() {
   const { selectedContentType, setSelectedContentType, contents } =
     useContentStore();
 
-  // Temporary mock data for testing - remove after testing
-  const getLastTuesday = () => {
-    const today = new Date();
-    const dayOfWeek = today.getDay();
-    const daysToLastTuesday = dayOfWeek === 0 ? 5 : dayOfWeek + 2; // If Sunday, go back 5 days, else current day + 2
-    const lastTuesday = new Date(today);
-    lastTuesday.setDate(today.getDate() - daysToLastTuesday);
-    return lastTuesday.toISOString();
-  };
-
-  const mockContent = [
-    {
-      _id: "mock1",
-      title: "Test Article 1",
-      link: "https://example.com/1",
-      type: "article" as const,
-      tags: ["test"],
-      userId: "mock-user",
-      createdAt: getLastTuesday(),
-      updatedAt: getLastTuesday(),
-    },
-    {
-      _id: "mock2",
-      title: "Test Video 1",
-      link: "https://youtube.com/watch?v=test",
-      type: "youtube" as const,
-      tags: ["test"],
-      userId: "mock-user",
-      createdAt: getLastTuesday(),
-      updatedAt: getLastTuesday(),
-    },
-    {
-      _id: "mock3",
-      title: "Test Article 2",
-      link: "https://example.com/2",
-      type: "article" as const,
-      tags: ["test"],
-      userId: "mock-user",
-      createdAt: getLastTuesday(),
-      updatedAt: getLastTuesday(),
-    },
-  ];
-
-  // Combine real contents with mock data
-  const allContents = [...contents, ...mockContent];
-
-  const contentTypes = [
-    {
-      id: "all" as ContentType,
-      label: "All Items",
-      icon: null,
-      count: allContents.length,
-    },
-    {
-      id: "youtube" as ContentType,
-      label: "YouTube",
-      icon: <YoutubeIcon />,
-      count: allContents.filter((c) => c.type === "youtube").length,
-    },
-    {
-      id: "twitter" as ContentType,
-      label: "Twitter",
-      icon: <TwitterIcon />,
-      count: allContents.filter((c) => c.type === "twitter").length,
-    },
-    {
-      id: "article" as ContentType,
-      label: "Articles",
-      icon: <ArticleIcon />,
-      count: allContents.filter((c) => c.type === "article").length,
-    },
-  ];
+  const contentTypes = CONTENT_TYPES.map((type) => ({
+    ...type,
+    icon: type.icon ? <type.icon /> : null,
+    count:
+      type.id === "all"
+        ? contents.length
+        : contents.filter((c) => c.type === type.id).length,
+  }));
 
   return (
     <aside className="h-screen bg-white border-r border-gray-200 w-88 fixed left-0 top-0 flex flex-col">
@@ -154,7 +88,7 @@ export function Sidebar() {
                     targetDate.setDate(startOfWeek.getDate() + index);
 
                     // Count content for this day
-                    const dayContent = allContents.filter((c) => {
+                    const dayContent = contents.filter((c) => {
                       const contentDate = new Date(c.createdAt);
                       return (
                         contentDate.toDateString() === targetDate.toDateString()
@@ -167,7 +101,7 @@ export function Sidebar() {
                         (_, i) => {
                           const d = new Date(startOfWeek);
                           d.setDate(startOfWeek.getDate() + i);
-                          return allContents.filter((c) => {
+                          return contents.filter((c) => {
                             const contentDate = new Date(c.createdAt);
                             return (
                               contentDate.toDateString() === d.toDateString()

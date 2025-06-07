@@ -1,27 +1,37 @@
 import { useForm } from "react-hook-form";
-import { useAuthStore } from "../../store/authStore";
+import { useAuthStore } from "../../../store/authStore";
 
-interface SignInForm {
+interface SignUpForm {
   username: string;
   password: string;
+  confirmPassword: string;
 }
 
-interface SignInProps {
+interface SignUpProps {
   onToggleMode: () => void;
+  onSignUpSuccess: () => void;
   onBackToLanding?: () => void;
 }
 
-export function SignIn({ onToggleMode, onBackToLanding }: SignInProps) {
-  const { signin, isLoading, error, clearError } = useAuthStore();
+export function SignUp({
+  onToggleMode,
+  onSignUpSuccess,
+  onBackToLanding,
+}: SignUpProps) {
+  const { signup, isLoading, error, clearError } = useAuthStore();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignInForm>();
+    watch,
+  } = useForm<SignUpForm>();
 
-  const onSubmit = async (data: SignInForm) => {
+  const password = watch("password");
+
+  const onSubmit = async (data: SignUpForm) => {
     try {
-      await signin(data.username, data.password);
+      await signup(data.username, data.password);
+      onSignUpSuccess();
     } catch (error) {
       // Error is handled by the store
     }
@@ -31,12 +41,39 @@ export function SignIn({ onToggleMode, onBackToLanding }: SignInProps) {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background Doodles */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Top Left Circle */}
-        <div className="absolute top-20 left-10 w-32 h-32 border-4 border-gray-400 rounded-full opacity-70"></div>
-
-        {/* Top Right Wavy Lines */}
+        {/* Top Right Hexagon */}
         <svg
-          className="absolute top-16 right-16 w-24 h-24 text-gray-400 opacity-80"
+          className="absolute top-16 right-20 w-20 h-20 text-gray-400 opacity-75"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 80 80"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={3}
+            d="M40 10 L60 25 L60 55 L40 70 L20 55 L20 25 Z"
+          />
+        </svg>
+
+        {/* Top Left Zigzag */}
+        <svg
+          className="absolute top-24 left-12 w-28 h-16 text-gray-400 opacity-70"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 120 60"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={3}
+            d="M10 30 L30 10 L50 30 L70 10 L90 30 L110 10"
+          />
+        </svg>
+
+        {/* Bottom Right Spirals */}
+        <svg
+          className="absolute bottom-20 right-16 w-24 h-24 text-gray-400 opacity-70"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 100 100"
@@ -45,48 +82,62 @@ export function SignIn({ onToggleMode, onBackToLanding }: SignInProps) {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={3}
-            d="M20 20 Q50 40 80 20 M20 35 Q50 55 80 35 M20 50 Q50 70 80 50"
+            d="M50 10 Q80 20 70 50 Q60 80 30 70 Q10 60 20 30 Q30 10 50 20"
           />
         </svg>
 
-        {/* Bottom Left Squares */}
-        <div className="absolute bottom-32 left-16">
-          <div className="w-6 h-6 border-4 border-gray-400 opacity-70 rotate-45"></div>
-          <div className="w-8 h-8 border-4 border-gray-400 opacity-60 rotate-12 mt-2 ml-8"></div>
+        {/* Bottom Left Stars */}
+        <div className="absolute bottom-32 left-14">
+          <svg
+            className="w-8 h-8 text-gray-400 opacity-80"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <svg
+            className="w-6 h-6 text-gray-400 opacity-70 mt-3 ml-8"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
         </div>
 
-        {/* Bottom Right Dots */}
-        <div className="absolute bottom-24 right-20">
-          <div className="w-4 h-4 bg-gray-500 rounded-full opacity-80"></div>
-          <div className="w-6 h-6 bg-gray-500 rounded-full opacity-70 mt-4 ml-6"></div>
-          <div className="w-2 h-2 bg-gray-500 rounded-full opacity-90 mt-2 ml-2"></div>
-        </div>
-
-        {/* Center Left Abstract Shape */}
+        {/* Center Left Cloud Shape */}
         <svg
-          className="absolute left-8 top-1/2 transform -translate-y-1/2 w-16 h-16 text-gray-400 opacity-70"
+          className="absolute left-6 top-1/2 transform -translate-y-1/2 w-20 h-12 text-gray-400 opacity-70"
           fill="none"
           stroke="currentColor"
-          viewBox="0 0 60 60"
+          viewBox="0 0 80 48"
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={3}
-            d="M10 30 Q30 10 50 30 Q30 50 10 30 Z"
+            d="M16 32 Q8 32 8 24 Q8 16 16 16 Q20 8 32 8 Q44 8 48 16 Q56 16 56 24 Q56 32 48 32 Z"
           />
         </svg>
 
-        {/* Center Right Triangle */}
-        <div className="absolute right-12 top-1/3 w-0 h-0 border-l-12 border-l-transparent border-r-12 border-r-transparent border-b-16 border-b-gray-400 opacity-65"></div>
+        {/* Center Right Diamond */}
+        <div className="absolute right-10 top-2/5 w-12 h-12 border-4 border-gray-400 opacity-65 rotate-45 transform"></div>
 
-        {/* Floating Elements */}
-        <div className="absolute top-1/4 left-1/4 w-10 h-10 border-4 border-gray-400 rounded-lg opacity-60 rotate-12"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-8 h-8 border-4 border-gray-400 rounded-full opacity-65"></div>
+        {/* Scattered Elements */}
+        <div className="absolute top-1/3 left-1/3 w-10 h-2 bg-gray-400 opacity-70 rotate-45"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-2 h-10 bg-gray-400 opacity-75 rotate-12"></div>
+        <div className="absolute top-2/3 left-1/5 w-6 h-6 border-4 border-gray-400 opacity-80"></div>
 
-        {/* Additional Highly Visible Elements */}
-        <div className="absolute top-1/3 right-1/3 w-12 h-12 bg-gray-300 rounded-lg opacity-60 rotate-45"></div>
-        <div className="absolute bottom-1/5 left-1/5 w-16 h-3 bg-gray-400 opacity-70 rotate-12"></div>
+        {/* Plus Signs */}
+        <div className="absolute top-1/5 right-1/3 text-gray-400 opacity-70 text-2xl font-light">
+          +
+        </div>
+        <div className="absolute bottom-1/5 left-1/3 text-gray-400 opacity-65 text-3xl font-light">
+          +
+        </div>
+
+        {/* Additional Bold Elements */}
+        <div className="absolute top-1/4 right-1/5 w-14 h-14 bg-gray-300 rounded-full opacity-50"></div>
+        <div className="absolute bottom-1/3 left-1/6 w-8 h-16 bg-gray-400 opacity-60 rotate-30"></div>
       </div>
 
       <div className="max-w-md w-full relative z-10">
@@ -122,22 +173,18 @@ export function SignIn({ onToggleMode, onBackToLanding }: SignInProps) {
               fill="currentColor"
               viewBox="0 0 20 20"
             >
-              <path
-                fillRule="evenodd"
-                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-                clipRule="evenodd"
-              />
+              <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
             </svg>
           </div>
           <h1 className="text-3xl font-bold text-black tracking-tight mb-2">
-            Welcome back
+            Create your account
           </h1>
           <p className="text-gray-600">
-            Sign in to access your digital collection
+            Start building your digital collection today
           </p>
         </div>
 
-        {/* Sign In Form */}
+        {/* Sign Up Form */}
         <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {error && (
@@ -197,7 +244,7 @@ export function SignIn({ onToggleMode, onBackToLanding }: SignInProps) {
                     },
                   })}
                   type="text"
-                  placeholder="Enter your username"
+                  placeholder="Choose a username"
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 transition-all duration-200"
                 />
                 {errors.username && (
@@ -223,12 +270,36 @@ export function SignIn({ onToggleMode, onBackToLanding }: SignInProps) {
                     },
                   })}
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder="Create a password"
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 transition-all duration-200"
                 />
                 {errors.password && (
                   <p className="mt-2 text-sm text-red-600">
                     {errors.password.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-black mb-2"
+                >
+                  Confirm Password
+                </label>
+                <input
+                  {...register("confirmPassword", {
+                    required: "Please confirm your password",
+                    validate: (value) =>
+                      value === password || "Passwords do not match",
+                  })}
+                  type="password"
+                  placeholder="Confirm your password"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500/20 focus:border-gray-500 transition-all duration-200"
+                />
+                {errors.confirmPassword && (
+                  <p className="mt-2 text-sm text-red-600">
+                    {errors.confirmPassword.message}
                   </p>
                 )}
               </div>
@@ -242,22 +313,22 @@ export function SignIn({ onToggleMode, onBackToLanding }: SignInProps) {
               {isLoading ? (
                 <div className="flex items-center justify-center gap-2">
                   <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
-                  <span>Signing in...</span>
+                  <span>Creating account...</span>
                 </div>
               ) : (
-                "Sign in"
+                "Create account"
               )}
             </button>
           </form>
 
           <div className="mt-8 text-center">
             <p className="text-gray-600 text-sm">
-              Don't have an account?{" "}
+              Already have an account?{" "}
               <button
                 onClick={onToggleMode}
                 className="font-medium text-black hover:text-gray-600 transition-colors"
               >
-                Create one
+                Sign in
               </button>
             </p>
           </div>

@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { Button } from "./button";
-import { CrossIcon } from "../../assets/icons/CrossIcon";
-import { useAuthStore } from "../../store/authStore";
+import { Button } from "../../ui/button";
+import { CrossIcon } from "../../../assets/icons/CrossIcon";
+import { useAuthStore } from "../../../store/authStore";
 
 interface DeleteAccountForm {
   password: string;

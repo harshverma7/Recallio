@@ -48,6 +48,15 @@
 - Intuitive sidebar navigation
 - Smart empty states and loading indicators
 
+### 🏗️ **Clean Architecture**
+
+- **Feature-Based Organization** - Components grouped by business functionality
+- **Separation of Concerns** - UI components separated from business logic
+- **Reusable Components** - Pure UI components for consistent design
+- **Page-Level Structure** - Clear routing and page management
+- **Centralized Constants** - Shared configuration and type definitions
+- **Maintainable Codebase** - Easy to navigate, modify, and scale
+
 ## 🛠️ Tech Stack
 
 ### **Frontend**
@@ -138,11 +147,29 @@ Recallio/
 │   └── package.json
 ├── Recallio-fe/           # Frontend React app
 │   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── store/         # Zustand stores
-│   │   ├── services/      # API services
+│   │   ├── components/    # Component library
+│   │   │   ├── ui/        # Reusable UI components
+│   │   │   │   ├── button.tsx, card.tsx, modal.tsx
+│   │   │   │   ├── sidebar.tsx, SearchBar.tsx
+│   │   │   │   └── input.tsx, Logo.tsx
+│   │   │   └── features/  # Feature-specific components
+│   │   │       ├── auth/  # Authentication (SignIn, SignUp, Landing)
+│   │   │       ├── content/ # Content management
+│   │   │       └── sharing/ # Sharing & import modals
+│   │   ├── pages/         # Page-level components
+│   │   │   ├── AuthPage.tsx      # Authentication flow
+│   │   │   └── DashboardPage.tsx # Main content dashboard
+│   │   ├── layout/        # Layout components
+│   │   │   ├── AppLayout.tsx     # Main app layout
+│   │   │   └── Header.tsx        # App header with actions
+│   │   ├── constants/     # Application constants
+│   │   │   └── contentTypes.ts   # Content type definitions
+│   │   ├── store/         # Zustand state management
+│   │   ├── services/      # API communication layer
 │   │   ├── utils/         # Utility functions
-│   │   └── types/         # TypeScript types
+│   │   ├── hooks/         # Custom React hooks
+│   │   ├── types/         # TypeScript type definitions
+│   │   └── assets/        # Static assets & icons
 │   ├── public/
 │   └── package.json
 └── README.md
@@ -177,7 +204,15 @@ Recallio/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 🎯 Future Enhancements
+## 🎯 Recent Improvements
+
+- ✅ **Codebase Reorganization** - Clean, maintainable frontend architecture
+- ✅ **Component Organization** - Feature-based structure with reusable UI components
+- ✅ **Reduced Complexity** - Simplified main App component from 417 to 70 lines
+- ✅ **Better Separation** - Clear distinction between UI and business logic
+- ✅ **Eliminated Duplicates** - Removed duplicate components and imports
+
+## 🚀 Future Enhancements
 
 - Browser extension for quick content saving
 - Advanced tag management system
@@ -187,6 +222,8 @@ Recallio/
 - Mobile app development
 - Content preview generation
 - Advanced analytics and insights
+- Component documentation with Storybook
+- Unit and integration testing setup
 
 ## 🙏 Acknowledgments
 
