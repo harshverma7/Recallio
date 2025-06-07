@@ -79,19 +79,32 @@ npm run dev
 
 ### 🏠 **Landing Page**
 
-_Clean landing page with compelling messaging_
+![Landing Page](./assets/screenshots/landing-page.png)
+_Clean landing page with compelling messaging and call-to-action buttons_
+
+### 🎯 **Hero Section**
+
+![Hero Section](./assets/screenshots/hero-section.png)
+_Professional hero section showcasing key stats: 10K+ Active Users, 1M+ Items Saved, 99.9% Uptime_
 
 ### 🔐 **Authentication**
 
-_Simple sign up and sign in forms_
+<div align="center">
+  <img src="./assets/screenshots/signup.png" width="45%" alt="Sign Up" />
+  <img src="./assets/screenshots/signin.png" width="45%" alt="Sign In" />
+</div>
+
+_Simple and clean sign up and sign in forms_
 
 ### 📊 **Dashboard**
 
-_Main dashboard with sidebar, content cards, and search_
+![Dashboard](./assets/screenshots/dashboard.png)
+_Main dashboard featuring smart sidebar, content cards with YouTube/Twitter/Article embeds, and search functionality_
 
 ### ➕ **Add Content**
 
-_Smart content addition modal with URL auto-detection_
+![Add Content Modal](./assets/screenshots/add-content-modal.png)
+_Smart content addition modal with URL auto-detection and content type selection_
 
 ### ✨ **Key Features**
 
