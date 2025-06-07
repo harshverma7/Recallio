@@ -1,7 +1,5 @@
-import { ShareIcon } from "../../assets/icons/ShareIcon";
 import { TwitterIcon } from "../../assets/icons/TwitterIcon";
 import { YoutubeIcon } from "../../assets/icons/YoutubeIcon";
-import { DeleteIcon } from "../../assets/icons/DeleteIcon";
 import { ArticleIcon } from "../../assets/icons/ArticleIcon";
 import { useContentStore } from "../../store/contentStore";
 import { Content } from "../../services/api";
@@ -13,8 +11,6 @@ interface CardProps {
 
 const getYoutubeEmbedUrl = (url: string) => {
   // Handle different YouTube URL formats
-  let embedUrl = url;
-
   // Extract video ID from different URL formats
   let videoId = "";
 
@@ -74,15 +70,6 @@ const getTypeColor = (type: string) => {
 export const Card = ({ content }: CardProps) => {
   const { deleteContent } = useContentStore();
   const { title, link, type, tags, _id } = content;
-
-  const handleShare = async () => {
-    try {
-      await navigator.clipboard.writeText(link);
-      // You could add a toast notification here
-    } catch (err) {
-      console.error("Failed to copy link:", err);
-    }
-  };
 
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this item?")) {

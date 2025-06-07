@@ -92,7 +92,6 @@ export function Modal({
     formState: { errors },
     reset,
     setValue,
-    watch,
   } = useForm<ContentForm>();
 
   const onSubmit = async (data: ContentForm) => {

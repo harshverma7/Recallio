@@ -7,7 +7,6 @@ interface LandingPageProps {
 }
 
 export function LandingPage({ onGetStarted, onSignIn }: LandingPageProps) {
-  const [isHovered, setIsHovered] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -105,8 +104,6 @@ export function LandingPage({ onGetStarted, onSignIn }: LandingPageProps) {
           >
             <button
               onClick={onGetStarted}
-              onMouseEnter={() => setIsHovered("primary")}
-              onMouseLeave={() => setIsHovered(null)}
               className="group relative bg-black hover:bg-gray-800 text-white text-lg font-medium px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 min-w-[200px] shadow-lg hover:shadow-xl"
             >
               <span className="relative z-10">Start collecting</span>
@@ -115,8 +112,6 @@ export function LandingPage({ onGetStarted, onSignIn }: LandingPageProps) {
 
             <button
               onClick={onSignIn}
-              onMouseEnter={() => setIsHovered("secondary")}
-              onMouseLeave={() => setIsHovered(null)}
               className="text-gray-900 text-lg font-medium px-8 py-4 rounded-full border-2 border-gray-300 hover:border-gray-900 hover:bg-gray-50 transition-all duration-300 min-w-[200px] hover:scale-105"
             >
               I have an account

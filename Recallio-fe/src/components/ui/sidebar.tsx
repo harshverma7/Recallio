@@ -1,7 +1,7 @@
 import { SidebarItem } from "./sideBarItem";
 import { SearchBar } from "./SearchBar";
 import { Logo } from "./Logo";
-import { useContentStore, type ContentType } from "../../store/contentStore";
+import { useContentStore } from "../../store/contentStore";
 import { CONTENT_TYPES } from "../../constants/contentTypes";
 
 export function Sidebar() {
